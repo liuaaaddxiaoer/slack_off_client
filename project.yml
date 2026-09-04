@@ -1,0 +1,80 @@
+name: SlackOff
+
+options:
+  projectFormat: xcode16_0
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+  settingPresets: all
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    IPHONEOS_DEPLOYMENT_TARGET: "18.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  SlackOff:
+    type: application
+    platform: iOS
+    sources:
+      - path: SlackOff
+        type: syncedFolder
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        PRODUCT_BUNDLE_IDENTIFIER: com.slackoff.app
+        GENERATE_INFOPLIST_FILE: YES
+        ENABLE_PREVIEWS: YES
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+
+  SlackOffTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: SlackOffTests
+        type: syncedFolder
+    dependencies:
+      - target: SlackOff
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        PRODUCT_BUNDLE_IDENTIFIER: com.slackoff.app.tests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+
+schemes:
+  SlackOff:
+    build:
+      targets:
+        SlackOff: all
+        SlackOffTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - SlackOffTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
