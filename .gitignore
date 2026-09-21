@@ -10,5 +10,9 @@ build/
 .swiftpm/
 Packages/
 
+.dsh-vision-router/
+
+
+
 # macOS
 .DS_Store
