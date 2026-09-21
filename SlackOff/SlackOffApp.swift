@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SlackOffApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootTabView()
         }
     }
 }

@@ -64,6 +64,17 @@
                ReferencedContainer = "container:SlackOff.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E2CAD79FE301FE8725666D41"
+               BuildableName = "SlackOffUITests.xctest"
+               BlueprintName = "SlackOffUITests"
+               ReferencedContainer = "container:SlackOff.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

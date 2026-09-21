@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
+		1D621693C5C326B4FE9AC243 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7778E9DF8D41E863529A7FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3749A22299027DC5F7203CFA;
+			remoteInfo = SlackOff;
+		};
 		B19F9C302A42306005CBFC83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E7778E9DF8D41E863529A7FC /* Project object */;
@@ -17,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E042B0E37A9360708FC20B9 /* SlackOffUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SlackOffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7719014C58DF79DAD5D823A /* SlackOffTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SlackOffTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C481DAEF5EEAC41DA45CEA /* SlackOff.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SlackOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -29,6 +37,15 @@
 			explicitFolders = (
 			);
 			path = SlackOff;
+			sourceTree = "<group>";
+		};
+		4A1B733E0D2EAEB49A1D2C3D /* SlackOffUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = SlackOffUITests;
 			sourceTree = "<group>";
 		};
 		EBC9D1B88B5DAB46F20C45B7 /* SlackOffTests */ = {
@@ -48,6 +65,7 @@
 			children = (
 				F2C481DAEF5EEAC41DA45CEA /* SlackOff.app */,
 				C7719014C58DF79DAD5D823A /* SlackOffTests.xctest */,
+				8E042B0E37A9360708FC20B9 /* SlackOffUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,6 +75,7 @@
 			children = (
 				3F9370CEA8BF9905B68D8174 /* SlackOff */,
 				EBC9D1B88B5DAB46F20C45B7 /* SlackOffTests */,
+				4A1B733E0D2EAEB49A1D2C3D /* SlackOffUITests */,
 				3BB71A5D964C93307A52EBCE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +126,28 @@
 			productReference = C7719014C58DF79DAD5D823A /* SlackOffTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E2CAD79FE301FE8725666D41 /* SlackOffUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8257FA7443ED481BD708755F /* Build configuration list for PBXNativeTarget "SlackOffUITests" */;
+			buildPhases = (
+				7C007DA843AAE9F18F6619B2 /* Sources */,
+				48DD71085030CFED4EEB0432 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8672D7C579927046A5437575 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4A1B733E0D2EAEB49A1D2C3D /* SlackOffUITests */,
+			);
+			name = SlackOffUITests;
+			packageProductDependencies = (
+			);
+			productName = SlackOffUITests;
+			productReference = 8E042B0E37A9360708FC20B9 /* SlackOffUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -121,6 +162,10 @@
 					};
 					9A5945C36F93C80652840F97 = {
 						ProvisioningStyle = Automatic;
+					};
+					E2CAD79FE301FE8725666D41 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3749A22299027DC5F7203CFA;
 					};
 				};
 			};
@@ -140,12 +185,20 @@
 			targets = (
 				3749A22299027DC5F7203CFA /* SlackOff */,
 				9A5945C36F93C80652840F97 /* SlackOffTests */,
+				E2CAD79FE301FE8725666D41 /* SlackOffUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		01B01DC295D2C06468841420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DD71085030CFED4EEB0432 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -176,9 +229,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C007DA843AAE9F18F6619B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8672D7C579927046A5437575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3749A22299027DC5F7203CFA /* SlackOff */;
+			targetProxy = 1D621693C5C326B4FE9AC243 /* PBXContainerItemProxy */;
+		};
 		F6593700EA1E3E3843442F4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3749A22299027DC5F7203CFA /* SlackOff */;
@@ -298,6 +363,48 @@
 			};
 			name = Debug;
 		};
+		3319FC244F00224CCDBCA4CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.slackoff.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SlackOff;
+			};
+			name = Debug;
+		};
+		4F5F1EE35AEA5058AFE81124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.slackoff.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SlackOff;
+			};
+			name = Release;
+		};
 		53188185E51CA29E259E57EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,12 +412,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,12 +434,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,6 +519,15 @@
 			buildConfigurations = (
 				324B36314F7CBE5453CAD172 /* Debug */,
 				FD180B077F4C8A4ADBB661FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8257FA7443ED481BD708755F /* Build configuration list for PBXNativeTarget "SlackOffUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3319FC244F00224CCDBCA4CA /* Debug */,
+				4F5F1EE35AEA5058AFE81124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

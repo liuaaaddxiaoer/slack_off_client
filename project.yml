@@ -25,23 +25,47 @@ targets:
     sources:
       - path: SlackOff
         type: syncedFolder
+    # Info.plist 由 XcodeGen 依据下面的 properties 生成（项目根，不放 SlackOff/ 内，
+    # 否则会被 syncedFolder 当资源重复收录，触发 "Multiple commands produce Info.plist"）。
+    #
+    # 为什么必须手写：ATS（NSAppTransportSecurity）是字典类型，无法用 INFOPLIST_KEY_* 表达；
+    # 而一旦声明 info:，GENERATE_INFOPLIST_FILE 就要关掉，原先那 4 个 INFOPLIST_KEY_*
+    # 会被 Xcode 忽略，因此必须把等价内容一并迁进 properties，否则旋转/启动屏会回归。
+    info:
+      path: Info.plist
+      properties:
+        # 显式声明（GENERATE_INFOPLIST_FILE 关掉后不再自动生成）
+        LSRequiresIPhoneOS: true
+        NSAppTransportSecurity:
+          # 允许明文 HTTP 访问本地网络：小说服务 http://127.0.0.1:4321（模拟器）
+          # 与 http://<Mac 局域网 IP>:4321（真机）。
+          # loopback 本身已被 ATS 豁免，此键主要覆盖真机填局域网 IP 的场景。
+          NSAllowsLocalNetworking: true
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UIApplicationSupportsIndirectInputEvents: true
+        # 空的 UILaunchScreen 字典 = 无 storyboard 启动屏，同时让 App 拿到全屏尺寸
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
     settings:
       base:
         SWIFT_VERSION: "6.0"
         SWIFT_APPROACHABLE_CONCURRENCY: YES
         SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
         PRODUCT_BUNDLE_IDENTIFIER: com.slackoff.app
-        GENERATE_INFOPLIST_FILE: YES
         ENABLE_PREVIEWS: YES
         TARGETED_DEVICE_FAMILY: "1,2"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         SWIFT_EMIT_LOC_STRINGS: YES
-        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
-        INFOPLIST_KEY_UILaunchScreen_Generation: YES
-        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
-        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
-        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
 
   SlackOffTests:
     type: bundle.unit-test
@@ -60,6 +84,23 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         SWIFT_EMIT_LOC_STRINGS: YES
 
+  SlackOffUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: SlackOffUITests
+        type: syncedFolder
+    dependencies:
+      - target: SlackOff
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        PRODUCT_BUNDLE_IDENTIFIER: com.slackoff.app.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+
 schemes:
   SlackOff:
     build:
@@ -72,6 +113,7 @@ schemes:
       config: Debug
       targets:
         - SlackOffTests
+        - SlackOffUITests
     profile:
       config: Release
     analyze:
